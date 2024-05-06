@@ -1,0 +1,103 @@
+#version: "3.9"
+services:
+  my-webapp:
+    image: dotspace2019/nve-diploma-webapp:latest
+    #image: dotspace2019/django-greetings:latest
+    container_name: my-django-webapp
+    hostname: webapp
+    env_file: .env
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - TZ=${TZ_LOCAL}
+      - DB_HOST=${WEBAPP_DB_HOST}
+      - DB_PORT=${WEBAPP_DB_PORT}
+      - DB_NAME=${WEBAPP_DB_NAME}
+      - DB_USER=${WEBAPP_DB_USER}
+      - DB_PASSWORD=${WEBAPP_DB_PASSWORD}
+      - SQL_DATA_FILE=${WEBAPP_SQL_DATA_FILE}
+      #- DJANGO_LOG_LEVEL=DEBUG
+    #
+    #command: >
+    #  /bin/sh -c "cd /app && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command:
+      - /bin/sh
+      - -c
+      - |
+          cd /app
+          python manage.py makemigrations
+          python manage.py migrate
+          sql/djangoapp_data_inject.sh
+          python manage.py runserver 0.0.0.0:8000     
+    ports:
+      - "8000:8000"
+    #networks:
+    #  - webapp_network
+    volumes:
+      - appdata:/app
+      - ./sql/.:/app/sql
+    depends_on:
+      - my-pgsrv
+    #
+    #deploy:
+    #  resources:
+    #    limits:
+    #      cpus: '0.001'
+    #      memory: 50M
+    #    reservations:
+    #      cpus: '0.0001'
+    #      memory: 20M
+  #
+  my-pgsrv:
+    image: dotspace2019/nve-diploma-postgres162:latest
+    #image: postgres:16.2
+    #image: postgres:latest
+    container_name: my-pgsrv
+    restart: always
+    hostname: pgserver
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    env_file: .env
+    environment:
+      - TZ=${TZ_LOCAL}
+      - PGTZ=${TZ_LOCAL}
+      - POSTGRES_HOST_AUTH_METHOD=${PGSRV_HOST_AUTH_METHOD}
+      - POSTGRES_PORT=${PGSRV_PORT}
+      - POSTGRES_USER=${PGSRV_USER}
+      - POSTGRES_PASSWORD=${PGSRV_PASSWORD}
+      #- POSTGRES_DB=${PGSRV_NEW_DB}        # DISABLED: we will create database with "init.sql"
+    expose:
+      - ${PGSRV_PORT}
+    ports:
+      - "5432:5432"
+    #networks:
+    #  - webapp_network
+  #
+  my-pgadmin:
+    image: dotspace2019/nve-diploma-pgadmin4
+    #image: dpage/pgadmin4
+    container_name: my-pgadmin
+    hostname: pgadmin
+    restart: always
+    depends_on:
+      - my-pgsrv
+    ports:
+      - "5051:80"
+    environment:
+      TZ: ${TZ_LOCAL}
+      PGADMIN_DEFAULT_EMAIL: ${PGADM_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADM_DEFAULT_PASSWORD}
+      PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION: 'False'
+      PGADMIN_CONFIG_WTF_CSRF_CHECK_DEFAULT: 'False'
+#
+#networks:
+#  webapp_network:
+#    driver: bridge   # default_driver: overlay2
+#
+volumes:
+  pgdata:
+  appdata:
+    driver: local
