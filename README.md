@@ -7,7 +7,7 @@ Skill Factory Diploma Project - Stage0 :: Dockerized Webapp
 
 * [GitHub | sf-victn-diploma-1-infra](https://github.com/VictorNuzhdin/sf-victn-diploma-1-infra)
 
-<br>
+<!--<br>-->
 
 ### =DockerHub Repoes | Репозитории Образов на DockerHub
 
@@ -40,6 +40,7 @@ Skill Factory Diploma Project - Stage0 :: Dockerized Webapp
 В дальнейшем, это контейнеризированное веб-приложение будет развернуто в Kubernetes кластере,
 который создается в облаке "Yandex.Cloud" в рамках связанного проекта (см. ссылку выше).
 
+
 ```
 <br>
 
@@ -51,7 +52,7 @@ Skill Factory Diploma Project - Stage0 :: Dockerized Webapp
 2024-05-06_1428 :: stage01: DONE: разработано контейнеризированное веб-приложение на связке Python + Django
 2024-04-26_1345 :: stage00: DONE: создан пустой репозиторий
 
-#--TODO-------- :: В планах
+#--TODO-------- :: В_ПЛАНАХ
 
 2024-00-00_0000 :: stage02: TODO: разработать CI/CD конфигурации для автоматической сборки и деплоя на сервере "srv"
 2024-00-00_0000 :: stage03: TODO: разработать конфигурации для автоматического деплоя в Kubernetes Кластере
@@ -104,12 +105,12 @@ $ docker compose version
 #  * project_docker21ComposeUp.sh             :: запускает "Docker Compose" стек и выводит информацию о созданных Образах, Контейнерах и Разделах
 #  * project_docker22ComposeDownPrune.sh      :: уничтожает "Docker Compose" стек и удаляет все неиспользуемые Docker артифакты (кроме Образов)
 #  * project_docker30DestroyAppImage.sh       :: удаляет только Образ с веб-приложением (если требуется пересобрать только его)
-#  * project_docker31DestroyAllImagesCache.sh :: выолняет полную очистку: удаляет ВСЕ образы Стека, удаляет Кэш Сборки Docker (Build Cache)
+#  * project_docker31DestroyAllImagesCache.sh :: выполняет полную очистку: удаляет ВСЕ образы Стека, удаляет Кэш Сборки Docker (Build Cache)
 
 
 #..ПРИМЕНЯЕМ конфигурацию / Docker Compose Стек
 #  *работа по развертыванию и уничтожению ресурсов производится с помощью шелл-скриптов
-#  *предполагается что на сервере ранее не был развернут стек
+#  *предполагается что на сервере ранее не был развернут данный "Docker Compose" стек (чистая установка)
 #  *при первичном запуске  (холодный запуск) из удаленного репозитория скачиваются все необходимые Образы, создаются необходимые Слои для запуска Контейнеров, поэтому процесс может занять некоторое время
 #  *при повторных запусках (горячий запуск) все происходит намного быстрее, т.к все Слои с данными уже созданы локально
 
@@ -165,7 +166,7 @@ $ ./project_docker21ComposeUp.sh
         metadata.db
 
 
-#..ПРОВЕЯЕМ результат с помощью веб-браузера :: Python Django веб-приложение
+#..ПРОВРЕЯЕМ результат с помощью веб-браузера :: Python Django веб-приложение
 
 http://<IP_АДРЕС_ВАШЕГО_ХОСТА>:8000/
 http://localhost:8000/
@@ -180,7 +181,7 @@ http://localhost:8000/
 #   (i) если вы увидели тоже самое, значит все работает
 
 
-#..ПРОВЕЯЕМ результат с помощью веб-браузера :: pgAdmin4 (опционально, т.к все уже работает)
+#..ПРОВЕРЯЕМ результат с помощью веб-браузера :: pgAdmin4 (опционально, т.к все уже работает)
 
 http://<IP_АДРЕС_ВАШЕГО_ХОСТА>:5051/login?next=/browser/
 http://localhost:5051/login?next=/browser/
@@ -312,13 +313,13 @@ $ docker exec -it my-pgsrv bash
 
 
 <!--START_SCREENS_10-->
-<details><summary><h3><b>Состояние стека веб-приложения на Стадии #1 : : Базовый функционал</b></h3></summary>
-* демонстрация работы "Python Django" веб-приложения на своей учебной ВМ "VMware Workstation" <br>
-* демонстрация работы веб-интерфейса для работы с СУБД PostgreSQL (pgAdmin4) <br>
-* результат выполнения тестового sql-запроса с помощью "pgAdmin4" к таблице которую использует веб-приложение <br>
+<details open><summary><h3><b>Состояние стека веб-приложения на Стадии #1 : : Базовый функционал</b></h3></summary>
+* демонстрация Python Django веб-приложения на учебной ВМ "VMware Workstation" <br>
+* демонстрация веб-приложения для работы с СУБД PostgreSQL (pgAdmin4) <br>
+* выполнение тестового sql-запроса к таблице БД веб-приложения с помощью "pgAdmin4" <br>
 <br>
 
-![screen](_screens/sf-victn-diploma-0-app1__1.png.png?raw=true)
+![screen](_screens/sf-victn-diploma-0-app1__1.png?raw=true)
 <br>
 ![screen](_screens/sf-victn-diploma-0-app1__2.png?raw=true)
 <br>
@@ -328,11 +329,11 @@ $ docker exec -it my-pgsrv bash
 <br>
 ![screen](_screens/sf-victn-diploma-0-app1__5.png?raw=true)
 <br>
-![screen](_screens/sf-victn-diploma-0-app1__6?raw=true)
+![screen](_screens/sf-victn-diploma-0-app1__6.png?raw=true)
 <br>
-![screen](_screens/sf-victn-diploma-0-app1__7?raw=true)
+![screen](_screens/sf-victn-diploma-0-app1__7.png?raw=true)
 <br>
-![screen](_screens/sf-victn-diploma-0-app1__8?raw=true)
+![screen](_screens/sf-victn-diploma-0-app1__8.png?raw=true)
 
 </details>
 <!--END_SCREENS_10-->
