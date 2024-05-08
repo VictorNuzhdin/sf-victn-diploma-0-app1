@@ -17,7 +17,6 @@ Skill Factory Diploma Project - Stage0 :: Dockerized Webapp
 
 <br>
 
-
 ### =Quick Info | Быстрая информация
 
 ```bash
@@ -42,13 +41,15 @@ Skill Factory Diploma Project - Stage0 :: Dockerized Webapp
 
 
 ```
-<br>
+<!--<br>-->
 
-### =Change log : : История изменений (новые в начале)
+<!-- ### =Change log : : История изменений (новые в начале) -->
+<details open><summary><h3><b>Стадия #1: Разработка контейнеризированного веб-приложения</b></h3></summary>
 
 ```
 #project_status :: IN_PROGRESS
 
+2024-05-08_2156 :: stage01: FIX:  подготовка к ci/cd - справление ошибок тестового деплоя на [srv]
 2024-05-06_1428 :: stage01: DONE: разработано контейнеризированное веб-приложение на связке Python + Django
 2024-04-26_1345 :: stage00: DONE: создан пустой репозиторий
 
@@ -309,7 +310,7 @@ $ docker exec -it my-pgsrv bash
 
 </details>
 <!--END_DETAILS_10-->
-<br><br>
+<br>
 
 
 <!--START_SCREENS_10-->

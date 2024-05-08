@@ -5,9 +5,11 @@ VERSION_FILE="app/webapp/APP_VERSION"
 VERSION_NOW="$(date +'%Y.%m%d.%H%M%S')"
 DOCKER_REPO="dotspace2019"
 APP_NAME="nve-diploma-webapp"
+#APP_NAME="nve-diploma-webapp"
 #APP_NAME="django-greetings"
 APP_TAG_0="$VERSION_NOW"
 APP_TAG_1="latest"
+APP_TAG_2="dev"
 
 #--
 clear
@@ -23,7 +25,9 @@ echo -n $VERSION_NOW > $VERSION_FILE
 #..builds docker image from dockerfile
 echo
 echo "--Building Webapp Docker Image.."
-docker build -t ${DOCKER_REPO}/${APP_NAME}:${APP_TAG_0} -t ${DOCKER_REPO}/${APP_NAME}:${APP_TAG_1} .
+docker build -t ${APP_NAME}:${APP_TAG_2} .
+#docker build -t ${DOCKER_REPO}/${APP_NAME}:${APP_TAG_0} -t ${DOCKER_REPO}/${APP_NAME}:${APP_TAG_1} .
+#docker build -t ${DOCKER_REPO}/${APP_NAME}:${APP_TAG_0} -t ${DOCKER_REPO}/${APP_NAME}:${APP_TAG_1} -t ${DOCKER_REPO}/${APP_NAME}:${APP_TAG_2} .
 echo
 
 

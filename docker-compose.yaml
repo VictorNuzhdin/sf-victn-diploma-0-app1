@@ -1,7 +1,8 @@
 #version: "3.9"
 services:
   my-webapp:
-    image: dotspace2019/nve-diploma-webapp:latest
+    image: dotspace2019/nve-diploma-webapp:dev
+    #image: dotspace2019/nve-diploma-webapp:latest
     #image: dotspace2019/django-greetings:latest
     container_name: my-django-webapp
     hostname: webapp
@@ -12,12 +13,15 @@ services:
       dockerfile: Dockerfile
     environment:
       - TZ=${TZ_LOCAL}
-      - DB_HOST=${WEBAPP_DB_HOST}
-      - DB_PORT=${WEBAPP_DB_PORT}
+      - SECRET_KEY=${WEBAPP_SECRET_KEY}
+      - DB_HOST=${PGSRV_HOSTNAME}
+      - DB_PORT=${PGSRV_PORT_INTERNAL}
       - DB_NAME=${WEBAPP_DB_NAME}
       - DB_USER=${WEBAPP_DB_USER}
       - DB_PASSWORD=${WEBAPP_DB_PASSWORD}
       - SQL_DATA_FILE=${WEBAPP_SQL_DATA_FILE}
+      #- DB_HOST=${WEBAPP_DB_HOST}
+      #- DB_PORT=${WEBAPP_DB_PORT}
       #- DJANGO_LOG_LEVEL=DEBUG
     #
     #command: >
@@ -26,11 +30,12 @@ services:
       - /bin/sh
       - -c
       - |
+          sleep 15
           cd /app
           python manage.py makemigrations
           python manage.py migrate
           sql/djangoapp_data_inject.sh
-          python manage.py runserver 0.0.0.0:8000     
+          python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
     #networks:
@@ -38,6 +43,10 @@ services:
     volumes:
       - appdata:/app
       - ./sql/.:/app/sql
+      - ${APP_STATIC_FILES_VOLUME_NAME:-webapp-static}:/app/static
+      #- webapp-static:/app/static
+      #- /app/static/.:/app/static
+      #- ./app/static/.:/app/static
     depends_on:
       - my-pgsrv
     #
@@ -65,15 +74,21 @@ services:
       - TZ=${TZ_LOCAL}
       - PGTZ=${TZ_LOCAL}
       - POSTGRES_HOST_AUTH_METHOD=${PGSRV_HOST_AUTH_METHOD}
-      - POSTGRES_PORT=${PGSRV_PORT}
+      - POSTGRES_PORT=${PGSRV_PORT_INTERNAL}
       - POSTGRES_USER=${PGSRV_USER}
       - POSTGRES_PASSWORD=${PGSRV_PASSWORD}
       #- POSTGRES_DB=${PGSRV_NEW_DB}        # DISABLED: we will create database with "init.sql"
     expose:
-      - ${PGSRV_PORT}
+      - ${PGSRV_PORT_EXTERNAL}
+      #- ${PGSRV_PORT}
     ports:
-      - "5432:5432"
-    #networks:
+      - ${PGSRV_PORT_EXTERNAL}:${PGSRV_PORT_INTERNAL}
+      #- ${PGSRV_PORT}:5432
+      #- ${PGSRV_PORT}:${PGSRV_PORT}
+      #- "5432:5432"
+      #- "<EXTERNAL_HOST_PORT>:<INTERNAL_CONTAINER_PORT>"
+    #
+    #networks:test
     #  - webapp_network
   #
   my-pgadmin:
@@ -92,6 +107,7 @@ services:
       PGADMIN_DEFAULT_PASSWORD: ${PGADM_DEFAULT_PASSWORD}
       PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION: 'False'
       PGADMIN_CONFIG_WTF_CSRF_CHECK_DEFAULT: 'False'
+      #PGADMIN_LISTEN_PORT: 5454
 #
 #networks:
 #  webapp_network:
@@ -101,3 +117,5 @@ volumes:
   pgdata:
   appdata:
     driver: local
+  webapp-static:
+    external: true

@@ -1,25 +1,8 @@
---Recreates Table [greetings_words] and TOTALLY refresh DATA
-/*
-DROP TABLE IF EXISTS public.greetings_words;
-
-CREATE TABLE IF NOT EXISTS public.greetings_words
-(
-    --id bigint NOT NULL,
-    id serial PRIMARY KEY,
-    lang VARCHAR(3) COLLATE pg_catalog."default" NOT NULL,
-    word VARCHAR(50) COLLATE pg_catalog."default" NOT NULL
-    --CONSTRAINT greetings_words_pkey PRIMARY KEY (id)
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.greetings_words
-    OWNER to postgres;
-*/
-
---id filed is not needed in SQL query, cause that field is PrimaryKey (PK) and AutoIncrement and has "serial" type
---*INSERT INTO greetings_words (id, lang, word) ..
-
+--NOTES:
+--1. the database [djangoapp] is created at PostgreSQL level
+--   * with "sql/init.sql" script
+--   * when PotgreSQL first start
+--
 --Injects NEW data
 INSERT INTO greetings_words (lang, word)
 	 values ('ENG', 'hello'),

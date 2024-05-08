@@ -9,13 +9,22 @@ ENV PYTHONUNBUFFERED 1
 ENV PYTHONPATH "${PYTHONPATH}:/app"
 ENV PYTHONPATH "${PYTHONPATH}:/app/webapp"
 
-##..sets django webapp environment vars
-ENV SECRET_KEY="secret"
+##..sets django webapp environment vars (low_security)
+#ENV SECRET_KEY="secret"
+#ENV DB_NAME="djangoapp"
+#ENV DB_USER="postgres"
+#ENV DB_PASSWORD="postgres"
+#ENV DB_HOST="pgserver"
+#ENV DB_PORT="5432"
+
+##..sets django webapp environment vars (hi_security)
+#ENV SECRET_KEY='$cl0&SED_!80$'                     ## django app crashes and restarts
+ENV SECRET_KEY="veRyseCretFUckinGshItBigGOvnoKey"
 ENV DB_NAME="djangoapp"
-ENV DB_USER="postgres"
-ENV DB_PASSWORD="postgres"
+ENV DB_USER="guandon"
+ENV DB_PASSWORD="cl0&SED_@80"
 ENV DB_HOST="pgserver"
-ENV DB_PORT="5432"
+ENV DB_PORT="7856"
 #
 ENV WEBAPP_SQL_DATA_FILE="djangoapp_data.sql"
 

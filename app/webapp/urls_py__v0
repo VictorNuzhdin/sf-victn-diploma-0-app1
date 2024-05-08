@@ -6,12 +6,10 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
-    #path('', views.index, name='index'),
-    #path('hello/', include('greetings.urls')),
-    path('/', include('greetings.urls')),
-    path('/bonus/', include('bonus.urls')),
-    #path('bonus/', include('bonus.urls')),
-    #path('admin/', admin.site.urls),
+    path('', views.index, name='index'),    
+    path('hello/', include('greetings.urls')),
+    path('bonus/', include('bonus.urls')),
+    path('admin/', admin.site.urls),
 ]
 
 # example1
