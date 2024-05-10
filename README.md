@@ -49,6 +49,7 @@ Skill Factory Diploma Project - Stage0 :: Dockerized Webapp
 ```
 #project_status :: IN_PROGRESS
 
+2024-05-10_2240 :: stage02: TEST: тестирование ci/cd в DockerHub c помощью GitHub Actions
 2024-05-08_2156 :: stage01: FIX:  подготовка к ci/cd - исправление ошибок тестового деплоя на [srv]
 2024-05-06_1428 :: stage01: DONE: разработано контейнеризированное веб-приложение на связке Python + Django
 2024-04-26_1345 :: stage00: DONE: создан пустой репозиторий
