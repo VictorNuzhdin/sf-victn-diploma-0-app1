@@ -1,13 +1,13 @@
 #!/bin/bash
 
 PROJECT_DIR=${PWD##*/}
-APP_VERSION="2024.0505.220527"
+REPO_LOGIN="dotspace2019"
+REPO_NAME="nve-diploma-webapp"
 #
-#IMAGE0_FULL_NAME="dotspace2019/nve-diploma-webapp:${APP_VERSION}"
-#IMAGE1_FULL_NAME="dotspace2019/nve-diploma-webapp:latest"
-IMAGE1_FULL_NAME="webapp:latest"
-#
-#
+#APP_VERSION_0="2024.0505.220527"
+#APP_VERSION_1="latest"
+#APP_VERSION_2="dev"
+APP_VERSION_3="test"
 #
 
 #--
@@ -17,9 +17,11 @@ echo "--Removing Docker Images and Clear Build Cache.."
 echo
 echo "..Removing Images.."
 echo
-#docker rmi ${IMAGE0_FULL_NAME}
-docker rmi ${IMAGE1_FULL_NAME}
-#
+#docker rmi ${REPO_LOGIN}/${REPO_NAME}:${APP_VERSION_0}
+#docker rmi ${REPO_LOGIN}/${REPO_NAME}:${APP_VERSION_1}
+#docker rmi ${REPO_LOGIN}/${REPO_NAME}:${APP_VERSION_2}
+docker rmi ${REPO_LOGIN}/${REPO_NAME}:${APP_VERSION_3}
+#docker rmi ${REPO_NAME}:${APP_VERSION_3}
 #
 echo
 echo
@@ -33,7 +35,7 @@ docker builder prune --all --force
 
 #echo "..Clearing Docker System.."
 #echo
-docker system prune --all --force
+#docker system prune --all --force
 #echo
 #echo
 

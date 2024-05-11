@@ -5,14 +5,20 @@ from django.urls import path
 from django.urls import include, path
 from . import views
 
+##--default
+##--for_remoteHost_deployment (doesnt work on local server)
 urlpatterns = [
-    #path('', views.index, name='index'),
-    #path('hello/', include('greetings.urls')),
-    path('/', include('greetings.urls')),
-    path('/bonus/', include('bonus.urls')),
-    #path('bonus/', include('bonus.urls')),
-    #path('admin/', admin.site.urls),
+    path('', views.index, name='index'),    
+    path('hello/', include('greetings.urls')),
+    path('bonus/', include('bonus.urls')),
+    path('admin/', admin.site.urls),
 ]
+
+##--for_localHost_deployment (doesnt work on remote server)
+#urlpatterns = [
+#    path('/', include('greetings.urls')),
+#    path('/bonus/', include('bonus.urls')),
+#]
 
 # example1
 #   URL1:
