@@ -1,4 +1,4 @@
-name: Build and share Docker Image to Docker Hub
+name: Build, Tag and share Docker Image to Docker Hub
 
 on:
   push:
@@ -22,9 +22,23 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Get Tag
+        id: gen_tags
+        run: |
+          if [[ $GITHUB_REF == 'refs/tags/'* ]]; then
+            #TAGS='["${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO_NAME }}:latest","${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO_NAME }}:'${GITHUB_REF/refs\/tags\//}'"]'
+            TAGS='["${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO_NAME }}:latest","${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO_NAME }}:'${GITHUB_REF/refs\/tags\//}'"]'
+          else
+            TAGS='["user/image:latest"]'
+          fi
+          echo '::set-output name=tags::'$TAGS
+
       - name: Build and push
+        id: docker_build
         uses: docker/build-push-action@v4
+        #needs: gen_tags
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO_NAME }}:test
+          tags: ${{ fromJson(steps.gen_tags.outputs.tags)}}
+          #tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO_NAME }}:test
