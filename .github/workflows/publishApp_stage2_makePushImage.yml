@@ -6,14 +6,11 @@ on:
       - 'v*'
 
 env:
-  #REGISTRY: ghcr.io
+  REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}    #dotspace2019
+  IMAGE_NAME: ${{ secrets.DOCKERHUB_REPO_NAME }} # nve-diploma-webapp
+  #
+  #..examples
   #IMAGE_NAME: ${{ github.repository }}
-  #
-  REGISTRY: dotspace2019
-  IMAGE_NAME: nve-diploma-webapp
-  #
-  #DOCKERHUB_USERNAME: dotspace2019
-  #DOCKERHUB_REPO_NAME: nve-diploma-webapp
 
 jobs:
   build-and-push-image:
@@ -32,7 +29,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           #
-          #..example
+          #..examples
           #registry: ${{ env.REGISTRY }}
           #username: ${{ github.actor }}
           #password: ${{ secrets.PAT }}
@@ -44,6 +41,11 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=semver,pattern={{version}}
+
+      - name: Write Tags to APP_VERSION file
+        run: |
+          TAGS=${{ steps.meta.outputs.tags }}
+          echo $TAGS > ./app/webapp/APP_VERSION
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
