@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.1](https://github.com/VictorNuzhdin/sf-victn-diploma-0-app1/compare/v0.1.0...v0.0.1) (2024-05-16)
+
+
+### step02
+
+* release 0.0.1 ([af6a130](https://github.com/VictorNuzhdin/sf-victn-diploma-0-app1/commit/af6a130ba6c2a0cc6d15541f1e54dc6372d63c74))
+
 ## 0.1.0 (2024-05-16)
 
 
