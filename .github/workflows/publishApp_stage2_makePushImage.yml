@@ -42,10 +42,11 @@ jobs:
           tags: |
             type=semver,pattern={{version}}
 
-      - name: Write Tags to APP_VERSION file
-        run: |
-          TAGS=${{ steps.meta.outputs.tags }}
-          echo $TAGS > ./app/webapp/APP_VERSION
+      #..doesnt_work :: file not found error
+      #- name: Write Tags to APP_VERSION file
+      #  run: |
+      #    TAGS=${{ steps.meta.outputs.tags }}
+      #    echo $TAGS > ./app/webapp/APP_VERSION
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
