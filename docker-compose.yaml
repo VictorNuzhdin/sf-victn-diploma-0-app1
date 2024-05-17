@@ -1,9 +1,10 @@
 #version: "3.9"
 services:
   my-webapp:
-    image: dotspace2019/nve-diploma-webapp:test
+    image: dotspace2019/nve-diploma-webapp:latest
+    #image: dotspace2019/nve-diploma-webapp:0.0.1
+    #image: dotspace2019/nve-diploma-webapp:test
     #image: dotspace2019/nve-diploma-webapp:dev
-    #image: dotspace2019/nve-diploma-webapp:latest
     container_name: my-django-webapp
     hostname: webapp
     env_file: .env
