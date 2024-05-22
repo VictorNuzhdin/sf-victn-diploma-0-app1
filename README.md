@@ -537,11 +537,11 @@ $ docker exec -it my-pgsrv bash
 * 7. в репозитории DockerHub появились новые сборки/теги Образов (latest и 0.0.2) <br>
 * 8. конечное состояние: страница веб-приложения после создания ВМ "srv2" (версии 0.0.2, 0.0.3) <br><br>
 
-![screen](_screens/sf-victn-diploma-0-app1__stage2__1_1.png?raw=true)
+![screen](_screens/sf-victn-diploma-0-app1__stage2__1_01.png?raw=true)
 <br>
-![screen](_screens/sf-victn-diploma-0-app1__stage2__2_1.png?raw=true)
+![screen](_screens/sf-victn-diploma-0-app1__stage2__2_01.png?raw=true)
 <br>
-![screen](_screens/sf-victn-diploma-0-app1__stage2__3_1.png?raw=true)
+![screen](_screens/sf-victn-diploma-0-app1__stage2__3_01.png?raw=true)
 <br>
 ![screen](_screens/sf-victn-diploma-0-app1__stage2__4_01.png?raw=true)
 <br>
@@ -571,21 +571,21 @@ $ docker exec -it my-pgsrv bash
 * демонстрация веб-приложения для работы с СУБД PostgreSQL (pgAdmin4) <br>
 * выполнение тестового sql-запроса к таблице БД веб-приложения с помощью "pgAdmin4" <br><br>
 
-![screen](_screens/sf-victn-diploma-0-app1__stage1__1.png?raw=true)
+![screen](_screens/sf-victn-diploma-0-app1__stage1__01.png?raw=true)
 <br>
-![screen](_screens/sf-victn-diploma-0-app1__stage1__2.png?raw=true)
+![screen](_screens/sf-victn-diploma-0-app1__stage1__02.png?raw=true)
 <br>
-![screen](_screens/sf-victn-diploma-0-app1__stage1__3.png?raw=true)
+![screen](_screens/sf-victn-diploma-0-app1__stage1__03.png?raw=true)
 <br>
-![screen](_screens/sf-victn-diploma-0-app1__stage1__4.png?raw=true)
+![screen](_screens/sf-victn-diploma-0-app1__stage1__04.png?raw=true)
 <br>
-![screen](_screens/sf-victn-diploma-0-app1__stage1__5.png?raw=true)
+![screen](_screens/sf-victn-diploma-0-app1__stage1__05.png?raw=true)
 <br>
-![screen](_screens/sf-victn-diploma-0-app1__stage1__6.png?raw=true)
+![screen](_screens/sf-victn-diploma-0-app1__stage1__06.png?raw=true)
 <br>
-![screen](_screens/sf-victn-diploma-0-app1__stage1__7.png?raw=true)
+![screen](_screens/sf-victn-diploma-0-app1__stage1__07.png?raw=true)
 <br>
-![screen](_screens/sf-victn-diploma-0-app1__stage1__8.png?raw=true)
+![screen](_screens/sf-victn-diploma-0-app1__stage1__08.png?raw=true)
 
 </details>
 <!--END_SCREENS_10-->
