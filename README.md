@@ -80,6 +80,14 @@ Skill Factory Diploma Project - Stage0 :: Dockerized Webapp
 
 #--ВВЕДЕНИЕ
 
+#  в описании ниже будет продемонстрирована работа в двух связанных проектах
+#  1. инфраструктурный проект "" создающий необходимые облачные ресурсы (сеть и ВМ [srv])
+#     https://github.com/VictorNuzhdin/sf-victn-diploma-1-infra
+#   
+#  2. текущий проект "sf-victn-diploma-0-app1" веб-приложения которое будет развернуто на ВМ [srv] в качестве теста развертывания
+#     https://github.com/VictorNuzhdin/sf-victn-diploma-0-app1
+#
+
 
 #--ВЫПОЛНЕНИЕ
 
@@ -526,8 +534,10 @@ $ docker exec -it my-pgsrv bash
 <br>
 
 
+### =SCREENSHOTS | Снимки экрана / Иллюстрации
+
 <!--START_SCREENS_20-->
-<details open><summary><h3><b>=Скриншоты | Стадия #2 : : CI/CD средствами GitHub</b></h3></summary>
+<details open><summary><h3><b>Стадия #2 : : CI/CD средствами GitHub</b></h3></summary>
 * 1. начальное состояние: в GitHub репозитории нет релизов <br>
 * 2. пришли изменения кода, видно новый коммит <br>
 * 3. созданы манифесты "GitHub Actions Workflow" для создания Релиза и сборки Docker Образа <br>
@@ -566,7 +576,7 @@ $ docker exec -it my-pgsrv bash
 <br>
 
 <!--START_SCREENS_10-->
-<details><summary><h3><b>=Скриншоты | Стадия #1 : : Базовый функционал</b></h3></summary>
+<details><summary><h3><b>Стадия #1 : : Демонстрация веб-приложения</b></h3></summary>
 * демонстрация Python Django веб-приложения на учебной ВМ "VMware Workstation" <br>
 * демонстрация веб-приложения для работы с СУБД PostgreSQL (pgAdmin4) <br>
 * выполнение тестового sql-запроса к таблице БД веб-приложения с помощью "pgAdmin4" <br><br>
