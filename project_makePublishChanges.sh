@@ -5,7 +5,7 @@ PROJECT_DIR=${PWD##*/}
 LOG_FILE="_logs/fake.log"
 #
 TS="$(date +'%Y-%m-%dT%H:%M:%S%Z')"
-RELEASE_VERSION="0.0.2"
+RELEASE_VERSION="0.0.3"
 COMMIT_MESSAGE="step02: release $RELEASE_VERSION"
 #
 APP_VERSION_FILE="./app/webapp/APP_VERSION"
