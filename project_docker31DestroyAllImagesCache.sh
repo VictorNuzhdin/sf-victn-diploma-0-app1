@@ -2,8 +2,8 @@
 
 PROJECT_DIR=${PWD##*/}
 #IMAGE0_FULL_NAME="dotspace2019/nve-diploma-webapp:2024.0505.174705"
-#IMAGE1_FULL_NAME="dotspace2019/nve-diploma-webapp:latest"
-IMAGE1_FULL_NAME="webapp:latest"
+#IMAGE1_FULL_NAME="webapp:latest"
+IMAGE1_FULL_NAME="dotspace2019/nve-diploma-webapp:latest"
 IMAGE2_FULL_NAME="dotspace2019/nve-diploma-pgadmin4:latest"
 IMAGE3_FULL_NAME="dotspace2019/nve-diploma-postgres162:latest"
 #

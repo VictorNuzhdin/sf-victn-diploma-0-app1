@@ -1,9 +1,16 @@
+#Build, Tag and share Docker Image to Docker Hub
 name: build-docker-image
 
 on:
   push:
     tags:
       - 'v*'
+      #- '*'                    # push events to every tag not containing /
+      #- '**'                   # push events to every tag including hierarchical tags like v1.0/beta
+      #- 'v[12].[0-9]+.[0-9]+'  # matches all semantic versioning branches and tags with major version 1 or 2. for example: v1.10.1, v2.0.0
+    #
+    #branches:
+    #  - main
 
 env:
   REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}    #dotspace2019
@@ -20,8 +27,9 @@ jobs:
       packages: write
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout code/repository
+        uses: actions/checkout@v4
+        #uses: actions/checkout@v3
 
       - name: Log in to the Container registry
         uses: docker/login-action@v2
@@ -55,3 +63,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          #
+          #..examples
+          #tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO_NAME }}:test
