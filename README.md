@@ -88,9 +88,9 @@ Skill Factory Diploma Project - Stage0 :: Dockerized Webapp
 #  *выпускаем новый IAM-токен для авторизации Terraform в Облаке Yandex.Cloud
 #  *уничтожаем текущие ресурсы для последующего чистого теста
 
-$ pwd									        ## /home/devops/github/sf-victn-diploma-1-infra
+$ pwd                               ## /home/devops/github/sf-victn-diploma-1-infra
 $ ./project_ycTokenChange.sh
-$ ./project_tfUndeployAll.sh			        ## Destroy complete! Resources: 4 destroyed.
+$ ./project_tfUndeployAll.sh        ## Destroy complete! Resources: 4 destroyed.
 
 
 #..в проекте "sf-victn-diploma-0-app1"
@@ -101,10 +101,10 @@ $ ./project_tfUndeployAll.sh			        ## Destroy complete! Resources: 4 destroy
 #   - в файл "./_logs/fake.log" будет записано некоторое сообщение для эмитации логирования
 #   - эти изменения будут добавлены в коммит с тегом версии и отправлены в GitHub репозиторий (что запустит CI/CD)
 
-$ pwd											## /home/devops/github/sf-victn-diploma-0-app1
+$ pwd                                   ## /home/devops/github/sf-victn-diploma-0-app1
 
-$ nano project_makePublishChanges.sh			## RELEASE_VERSION="0.0.3"
-												## 					    ^^ изменили номер версии на +1
+$ nano project_makePublishChanges.sh    ## RELEASE_VERSION="0.0.3"
+
 $ ./project_makePublishChanges.sh
         ..
             On branch main
@@ -163,15 +163,15 @@ https://github.com/VictorNuzhdin/sf-victn-diploma-0-app1/pull/8
     >This branch has no conflicts with the base branch - Merge pull request
 
             Message: release 0.0.3
-                    *было: "chore(main): release 0.0.3"
+                     *было: "chore(main): release 0.0.3"
 
     >Commit merge
 
 проверяем состояние GitHub Actions
 https://github.com/VictorNuzhdin/sf-victn-diploma-0-app1/actions
     - идет выполнение Workflow инструкций.. ждем
-        * GitlabSync #32: Commit 735b7d5 			-- УСПЕШНО
-        * release-please #16: Commit 735b7d5		-- УСПЕШНО
+        * GitlabSync #32: Commit 735b7d5        -- УСПЕШНО
+        * release-please #16: Commit 735b7d5    -- УСПЕШНО
         * build-docker-image #7: Commit 735b7d5	-- УСПЕШНО
 
 #    (+) все отработало как ожидалось:
@@ -197,10 +197,10 @@ https://hub.docker.com/repository/docker/dotspace2019/nve-diploma-webapp/tags
 #  *выпускаем новый IAM-токен для авторизации Terraform в Облаке Yandex.Cloud
 #  *выполняем шелл-скрипты которые в Облаке Yandex.Cloud создают виртуальную сеть, подсеть и ВМ [srv]
 
-$ pwd                                           ## /home/devops/github/sf-victn-diploma-1-infra
+$ pwd                               ## /home/devops/github/sf-victn-diploma-1-infra
 $ ./project_ycTokenChange.sh
-$ ./project_tfDeployNetwork.sh                  ## Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
-$ ./project_tfDeployMonitor.sh                  ## Apply complete! Resources: 2 added, 0 changed, 0 destroyed. | Outputs: monitor_external_ip = "158.160.85.78"
+$ ./project_tfDeployNetwork.sh      ## Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+$ ./project_tfDeployMonitor.sh      ## Apply complete! Resources: 2 added, 0 changed, 0 destroyed. | Outputs: monitor_external_ip = "158.160.85.78"
 
 
 #..проверяем результат
