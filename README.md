@@ -170,9 +170,9 @@ https://github.com/VictorNuzhdin/sf-victn-diploma-0-app1/pull/8
 проверяем состояние GitHub Actions
 https://github.com/VictorNuzhdin/sf-victn-diploma-0-app1/actions
     - идет выполнение Workflow инструкций.. ждем
-        * GitlabSync #32: Commit 735b7d5        -- УСПЕШНО
-        * release-please #16: Commit 735b7d5    -- УСПЕШНО
-        * build-docker-image #7: Commit 735b7d5	-- УСПЕШНО
+      * GitlabSync #32: Commit 735b7d5        -- УСПЕШНО
+      * release-please #16: Commit 735b7d5    -- УСПЕШНО
+      * build-docker-image #7: Commit 735b7d5	-- УСПЕШНО
 
 #    (+) все отработало как ожидалось:
 #        - ошибок при выполнении "GitHub Actions Workflow" нет
@@ -185,8 +185,8 @@ https://github.com/VictorNuzhdin/sf-victn-diploma-0-app1/actions
 
 https://hub.docker.com/repository/docker/dotspace2019/nve-diploma-webapp/tags
 				
-            latest		Digest: bff6c9643944	Last pull: 2024.05.22 13:53
-            0.0.3		Digest: bff6c9643944	Last pull: 2024.05.22 13:53
+            latest      Digest: bff6c9643944    Last pull: 2024.05.22 13:53
+            0.0.3       Digest: bff6c9643944    Last pull: 2024.05.22 13:53
 
 #    (+) все отработало как ожидалось:
 #        - в репозитории DockerHub созданы актуальные версии Docker Образов
