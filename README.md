@@ -44,7 +44,7 @@ Skill Factory Diploma Project - Stage0 :: Dockerized Webapp
 <!--<br>-->
 
 <!-- ### =Change log : : История изменений (новые в начале) -->
-<details open><summary><h3><b>Change Log | История изменений</b></h3></summary>
+<details open><summary><h3><b>=Change Log | История изменений</b></h3></summary>
 
 ```
 #project_status :: IN_PROGRESS
@@ -71,7 +71,7 @@ Skill Factory Diploma Project - Stage0 :: Dockerized Webapp
 <br>
 
 
-### =Changes Details : : Описание изменений (новые в начале)
+### =Changes Details | Описание изменений (новые в начале)
 
 <!--START_DETAILS_20-->
 <details open><summary><h3><b>Стадия #2: CI/CD средствами GitHub</b></h3></summary>
@@ -535,7 +535,7 @@ $ docker exec -it my-pgsrv bash
 * 5. автоматически сработали манифесты "GitHub Actions Workflow" создания Релиза и сборки Образа <br>
 * 6. создан и виден в репозитории новый релиз v0.0.2 <br>
 * 7. в репозитории DockerHub появились новые сборки/теги Образов (latest и 0.0.2) <br>
-* 8. конечное состояние: страница веб-приложения после создания ВМ [srv2] (развернута версия 0.0.2 и и затем версия 0.0.3) <br>
+* 8. конечное состояние: страница веб-приложения после создания ВМ [srv2] (версии 0.0.2, 0.0.3) <br>
 <br>
 ![screen](_screens/sf-victn-diploma-0-app1__stage2__1_01.png?raw=true)
 <br>
