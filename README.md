@@ -535,7 +535,7 @@ $ docker exec -it my-pgsrv bash
 * 5. автоматически сработали манифесты "GitHub Actions Workflow" создания Релиза и сборки Образа <br>
 * 6. создан и виден в репозитории новый релиз v0.0.2 <br>
 * 7. в репозитории DockerHub появились новые сборки/теги Образов (latest и 0.0.2) <br>
-* 8. конечное состояние: страница веб-приложения после создания ВМ "srv2" (версии 0.0.2, 0.0.3) <br> <br>
+* 8. конечное состояние: страница веб-приложения после создания ВМ "srv2" (версии 0.0.2, 0.0.3) <br><br>
 
 ![screen](_screens/sf-victn-diploma-0-app1__stage2__1_1.png?raw=true)
 <br>
@@ -563,6 +563,32 @@ $ docker exec -it my-pgsrv bash
 
 </details>
 <!--END_SCREENS_20-->
+<br>
+
+<!--START_SCREENS_10-->
+<details><summary><h3><b>=Скриншоты | Стадия #1 : : Базовый функционал</b></h3></summary>
+* демонстрация Python Django веб-приложения на учебной ВМ "VMware Workstation" <br>
+* демонстрация веб-приложения для работы с СУБД PostgreSQL (pgAdmin4) <br>
+* выполнение тестового sql-запроса к таблице БД веб-приложения с помощью "pgAdmin4" <br><br>
+
+![screen](_screens/sf-victn-diploma-0-app1__stage1__1.png?raw=true)
+<br>
+![screen](_screens/sf-victn-diploma-0-app1__stage1__2.png?raw=true)
+<br>
+![screen](_screens/sf-victn-diploma-0-app1__stage1__3.png?raw=true)
+<br>
+![screen](_screens/sf-victn-diploma-0-app1__stage1__4.png?raw=true)
+<br>
+![screen](_screens/sf-victn-diploma-0-app1__stage1__5.png?raw=true)
+<br>
+![screen](_screens/sf-victn-diploma-0-app1__stage1__6.png?raw=true)
+<br>
+![screen](_screens/sf-victn-diploma-0-app1__stage1__7.png?raw=true)
+<br>
+![screen](_screens/sf-victn-diploma-0-app1__stage1__8.png?raw=true)
+
+</details>
+<!--END_SCREENS_10-->
 <br>
 
 [Каталог скриншотов](_screens)
